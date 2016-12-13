@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.test.kexiaoderenren.indexerlistview.MainActivity">
+
+    <include
+        android:id="@+id/recyclerview_indexer"
+        android:scrollbars="none"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        layout="@layout/view_recyclerview_indexer" />
+
+    <include
+        android:layout_toRightOf="@id/recyclerview_indexer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/view_recyclerview" />
+
+</RelativeLayout>
