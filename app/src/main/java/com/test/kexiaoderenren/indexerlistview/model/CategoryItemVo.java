@@ -1,64 +1,36 @@
 package com.test.kexiaoderenren.indexerlistview.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by kexiaoderenren on 2016/12/13.
  */
 public class CategoryItemVo implements Serializable{
 
+    /**
+     * 图片广告位展位
+     */
+    public static final int VIEW_TYPE_IMAGE_ADS = 0;
 
     /**
-     * id : 370
-     * cat_name : 酒杯
-     * cat_img : http://image13.wine9.com/activity/2015/07/app/5/5-1.jpg
-     * img : http://image13.wine9.com/activity/2015/08/app1/5/5-1.jpg
+     * 图文魂牌展位
      */
+    public static final int VIEW_TYPE_IMAGE_AND_TXT = 1;
 
-    private String id;
-    private String cat_name;
-    private String cat_img;
-    private String img;
+    /**
+     * 文字展位
+     */
+    public static final int VIEW_TYPE_TXT = 2;
 
-    public String getId() {
-        return id;
-    }
+    /**
+     * 布局类型
+     */
+    public int viewType;
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    /**
+     * 商品展示
+     */
+    public List<String> lists;
 
-    public String getCat_name() {
-        return cat_name;
-    }
-
-    public void setCat_name(String cat_name) {
-        this.cat_name = cat_name;
-    }
-
-    public String getCat_img() {
-        return cat_img;
-    }
-
-    public void setCat_img(String cat_img) {
-        this.cat_img = cat_img;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
-    }
-
-    @Override
-    public String toString() {
-        return "CategoryItemVo{" +
-                "id='" + id + '\'' +
-                ", cat_name='" + cat_name + '\'' +
-                ", cat_img='" + cat_img + '\'' +
-                ", img='" + img + '\'' +
-                '}';
-    }
 }

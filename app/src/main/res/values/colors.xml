@@ -7,4 +7,9 @@
     <color name="default_deliver_color">#dedede</color>
     <color name="black">#000000</color>
     <color name="red">#ff0000</color>
+    <color name="red_cc3333">#cc3333</color>
+    <color name="gray_eeeeee">#eeeeee</color>
+
+    <color name="white">#ffffff</color>
+    <color name="black_333333">#333333</color>
 </resources>

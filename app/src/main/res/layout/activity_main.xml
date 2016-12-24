@@ -3,19 +3,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gray_eeeeee"
     tools:context="com.test.kexiaoderenren.indexerlistview.MainActivity">
 
     <include
         android:id="@+id/recyclerview_indexer"
         android:scrollbars="none"
-        android:layout_width="80dp"
+        android:layout_width="77dp"
         android:layout_height="match_parent"
         layout="@layout/view_recyclerview_indexer" />
 
-    <include
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refresh"
         android:layout_toRightOf="@id/recyclerview_indexer"
+        android:background="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        layout="@layout/view_recyclerview" />
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:paddingLeft="9dp"
+            android:paddingRight="9dp"
+            android:paddingTop="9dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </android.support.v7.widget.RecyclerView>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </RelativeLayout>
+

@@ -1,15 +1,20 @@
 package com.test.kexiaoderenren.indexerlistview.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckedTextView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.test.kexiaoderenren.indexerlistview.R;
 import com.test.kexiaoderenren.indexerlistview.model.CategoryVo;
+import com.test.kexiaoderenren.indexerlistview.utils.ImageLoaderUtils;
 import com.test.kexiaoderenren.indexerlistview.widget.IRecyclerItemClickListener;
 
 import java.util.List;
@@ -23,14 +28,17 @@ public class IndexerAdapter extends RecyclerView.Adapter<IndexerAdapter.IndexerH
     private List<CategoryVo> lists;
     private Context mContext;
     private IRecyclerItemClickListener itemClickListener;
+    private Drawable drawableLeft;
 
     /*** 记录当前被选中的位置*/
     private int mPositionSelected;
-    private View mSelectedView;
+    private TextView mSelectedView;
 
     public IndexerAdapter(List<CategoryVo> lists, Context mContext) {
         this.lists = lists;
         this.mContext = mContext;
+        drawableLeft = ContextCompat.getDrawable(this.mContext,R.mipmap.icon_vertical_red);
+        drawableLeft.setBounds(0, 0, drawableLeft.getMinimumWidth(), drawableLeft.getMinimumHeight());
     }
 
     @Override
@@ -47,8 +55,9 @@ public class IndexerAdapter extends RecyclerView.Adapter<IndexerAdapter.IndexerH
         }
         if (mSelectedView == null && position==0){  //默认选中第一个
             mPositionSelected = 0;
-            mSelectedView = holder.itemView;
+            mSelectedView = (TextView) holder.itemView;
             mSelectedView.setSelected(true);
+            mSelectedView.setCompoundDrawables(drawableLeft, null, null, null);
         }
     }
 
@@ -59,9 +68,13 @@ public class IndexerAdapter extends RecyclerView.Adapter<IndexerAdapter.IndexerH
      */
     public void changeCategoryChoice(View view, int position) {
         mSelectedView.setSelected(false);
+        mSelectedView.setCompoundDrawables(null, null, null, null);
+
         mPositionSelected = position;
-        mSelectedView = view;
+        mSelectedView = (TextView) view;
         mSelectedView.setSelected(true);
+        mSelectedView.setCompoundDrawables(drawableLeft, null, null, null);
+
     }
 
     @Override
